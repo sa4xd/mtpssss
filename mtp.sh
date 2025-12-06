@@ -122,14 +122,14 @@ get_ip() {
 download_run(){
   if [ -e "${WORKDIR}/mtg" ]; then
       cd ${WORKDIR} && chmod +x mtg
-      exec ./mtg run -b 0.0.0.0:$MTP_PORT $SECRET --stats-bind=127.0.0.1:$MTP_PORT >/dev/null 2>&1 &
+      nohup  ./mtg run -b 0.0.0.0:$MTP_PORT $SECRET --stats-bind=127.0.0.1:$MTP_PORT >/dev/null 2>&1 &
   else
       mtg_url="https://github.com/eooce/test/releases/download/freebsd/mtg-freebsd-amd64"
       wget -q -O "${WORKDIR}/mtg" "$mtg_url"
 
       if [ -e "${WORKDIR}/mtg" ]; then
           cd ${WORKDIR} && chmod +x mtg
-         exec  ./mtg run -b 0.0.0.0:$MTP_PORT $SECRET --stats-bind=127.0.0.1:$MTP_PORT >/dev/null 2>&1 &
+         nohup   ./mtg run -b 0.0.0.0:$MTP_PORT $SECRET --stats-bind=127.0.0.1:$MTP_PORT >/dev/null 2>&1 &
       fi
   fi
 }
@@ -153,7 +153,7 @@ generate_info() {
 #!/bin/bash
 pkill mtg
 cd ${WORKDIR}
-exec  ./mtg run -b 0.0.0.0:$MTP_PORT $SECRET --stats-bind=127.0.0.1:$MTP_PORT >/dev/null 2>&1 &
+nohup   ./mtg run -b 0.0.0.0:$MTP_PORT $SECRET --stats-bind=127.0.0.1:$MTP_PORT >/dev/null 2>&1 &
 EOF
   chmod +x ${WORKDIR}/restart.sh
 }
@@ -178,7 +178,7 @@ download_mtg(){
 
   if [ -e "${WORKDIR}/mtg" ]; then
       cd ${WORKDIR} && chmod +x mtg
-      exec ./mtg run -b 0.0.0.0:$PORT $SECRET --stats-bind=127.0.0.1:$MTP_PORT >/dev/null 2>&1 &
+      nohup  ./mtg run -b 0.0.0.0:$PORT $SECRET --stats-bind=127.0.0.1:$MTP_PORT >/dev/null 2>&1 &
   fi
 }
 
