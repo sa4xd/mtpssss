@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>MTP Proxy 服务</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    .time-box {
+      font-size: 1.5em;
+      margin-top: 30px;
+      padding: 15px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      display: inline-block;
+    }
+    footer {
+      margin-top: 50px;
+      font-size: 0.9em;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚀 MTP Proxy 已启动</h1>
+  <p>欢迎使用 Telegram MTProto Proxy 服务</p>
+
+  <div class="time-box">
+    当前时间：<span id="time"></span>
+  </div>
+
+  <footer>
+    &copy; 2025 MTP Proxy | Powered by Docker
+  </footer>
+
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const options = { 
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      };
+      document.getElementById('time').textContent = 
+        now.toLocaleString('zh-CN', options);
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+  </script>
+</body>
+</html>
