@@ -129,7 +129,7 @@ download_run(){
 
       if [ -e "${WORKDIR}/mtg" ]; then
           cd ${WORKDIR} && chmod +x mtg
-          ./mtg run -b 0.0.0.0:$MTP_PORT $SECRET --stats-bind=127.0.0.1:$MTP_PORT >/dev/null 2>&1 &
+         exec  ./mtg run -b 0.0.0.0:$MTP_PORT $SECRET --stats-bind=127.0.0.1:$MTP_PORT >/dev/null 2>&1 &
       fi
   fi
 }
@@ -153,7 +153,7 @@ generate_info() {
 #!/bin/bash
 pkill mtg
 cd ${WORKDIR}
-./mtg run -b 0.0.0.0:$MTP_PORT $SECRET --stats-bind=127.0.0.1:$MTP_PORT >/dev/null 2>&1 &
+exec  ./mtg run -b 0.0.0.0:$MTP_PORT $SECRET --stats-bind=127.0.0.1:$MTP_PORT >/dev/null 2>&1 &
 EOF
   chmod +x ${WORKDIR}/restart.sh
 }
