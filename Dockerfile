@@ -13,7 +13,7 @@ RUN chmod +x /app/mtp.sh
 
 # 声明环境变量（可在 docker run 时覆盖）
 ENV MODE=tls \
-    DOMAIN=www.cloudflare.com \
+    DOMAIN=azure.microsoft.com \
     PORT=443 \
     MTP_PORT=444 \
     SECRET=""
