@@ -38,7 +38,7 @@ CMD /bin/bash -c "\
     echo '启动 MTProxy...' && \
     /app/mtp.sh & \
     echo '生成 cftun 配置...' && \
-    echo \"tunnels:\n  - hostname: ${ARGO_HOSTNAME}\n    service: tcp://127.0.0.1:${MTP_PORT}\n    protocol: tcp\" > /app/cftun.yaml && \
+    echo \"tunnels:\n  - hostname: ${ARGO_HOSTNAME}\n    service: tcp://127.0.0.1:${PORT}\n    protocol: tcp\" > /app/cftun.yaml && \
     echo '启动 cftun...' && \
     cftun --config /app/cftun.yaml --token ${ARGO_TOKEN} & \
     echo '启动 Web 服务 (3000)...' && \
